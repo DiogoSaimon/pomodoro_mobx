@@ -5,9 +5,14 @@ import 'package:pomodoro_mobx/components/entrada_tempo.dart';
 import 'package:pomodoro_mobx/store/pomodoro.store.dart';
 import 'package:provider/provider.dart';
 
-class Pomodoro extends StatelessWidget {
+class Pomodoro extends StatefulWidget {
   const Pomodoro({Key? key}) : super(key: key);
 
+  @override
+  State<Pomodoro> createState() => _PomodoroState();
+}
+
+class _PomodoroState extends State<Pomodoro> {
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<PomodoroStore>(context);
@@ -31,21 +36,21 @@ class Pomodoro extends StatelessWidget {
                       titulo: "Trabalho",
                       valor: store.tempoTrabalho,
                       inc: store.iniciado && store.estaTrabalhando()
-                      ? null
-                      : store.incrementarTempoTrabalho,
+                          ? null
+                          : store.incrementarTempoTrabalho,
                       dec: store.iniciado && store.estaTrabalhando()
-                      ? null
-                      : store.decrementarTempoTrabalho,
+                          ? null
+                          : store.decrementarTempoTrabalho,
                     ),
                     EntradaTempo(
                       titulo: "Descanso",
                       valor: store.tempoDescanso,
                       inc: store.iniciado && store.estaDescansando()
-                      ? null
-                      : store.incrementarTempoDescanso,
+                          ? null
+                          : store.incrementarTempoDescanso,
                       dec: store.iniciado && store.estaDescansando()
-                      ? null
-                      : store.decrementarTempoDescanso,
+                          ? null
+                          : store.decrementarTempoDescanso,
                     ),
                   ],
                 ),

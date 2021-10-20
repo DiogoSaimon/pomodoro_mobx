@@ -4,9 +4,14 @@ import 'package:pomodoro_mobx/components/cronometro_botao.dart';
 import 'package:pomodoro_mobx/store/pomodoro.store.dart';
 import 'package:provider/provider.dart';
 
-class Cronometro extends StatelessWidget {
+class Cronometro extends StatefulWidget {
   const Cronometro({Key? key}) : super(key: key);
 
+  @override
+  State<Cronometro> createState() => _CronometroState();
+}
+
+class _CronometroState extends State<Cronometro> {
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<PomodoroStore>(context);
